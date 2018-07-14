@@ -21,6 +21,10 @@ export class HomePage {
     this.todoProvider.archiveTodo(todoIndex);
   }
 
+  editTodo(todoIndex){
+    this.todoProvider.editTodo(todoIndex);
+  }
+
   goToArchivePage(){
     this.navCtrl.push(ArchivedTodosPage);
   }
@@ -40,7 +44,8 @@ export class HomePage {
       inputs: [
         {
           type: "text",
-          name: "addTodoInput"
+          name: "addTodoInput",
+          placeholder: "Tache"
         }
       ],
       buttons: [

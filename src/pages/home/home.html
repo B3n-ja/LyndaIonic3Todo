@@ -26,9 +26,19 @@
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
+      <ion-item-options side="left">
+        <button color="primary" ion-button (click)="editTodo(todoIndex)">
+          <ion-icon name="eye"></ion-icon>
+        </button>
+      </ion-item-options>
     </ion-item-sliding>
-    <!-- <ion-item>Todo 2</ion-item>
-    <ion-item>Todo 3</ion-item> -->
+    <!-- <ion-item>Todo 2</ion-item> -->
+    <ion-item>
+        <button ion-button item-start>start</button>
+        <ion-label>test</ion-label>
+        <button ion-button item-end>end</button>
+      </ion-item>
+    
   </ion-list>
 
 <ion-fab right bottom>
