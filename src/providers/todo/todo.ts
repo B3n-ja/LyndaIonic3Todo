@@ -26,8 +26,8 @@ export class TodoProvider {
     this.archivedTodos.push(todoToBeArchived);
   }
 
-  editTodo(todoIndex){
-    
+  editTodo(todoIndex, newTodo){
+    this.todos[todoIndex] = newTodo;
   }
 
   getArchivesTodos(){

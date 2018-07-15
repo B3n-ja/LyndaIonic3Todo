@@ -21,10 +21,6 @@ export class HomePage {
     this.todoProvider.archiveTodo(todoIndex);
   }
 
-  editTodo(todoIndex){
-    this.todoProvider.editTodo(todoIndex);
-  }
-
   goToArchivePage(){
     this.navCtrl.push(ArchivedTodosPage);
   }
@@ -74,6 +70,42 @@ export class HomePage {
       ]
     });
     addTodoAlert.present();
+  }
+
+  openEditTodoAlert(todoIndex){
+    let editTodoAlert = this.alertController.create({
+      title: "Edit a todo",
+      message: "Update your todo",
+      inputs: [
+        {
+          type: "text",
+          name: "editTodoInput",
+          value: this.todos[todoIndex]
+        }
+      ],
+      buttons:[
+        {
+          text: "cancel"
+        },
+        {
+          text: "Update",
+          handler: (inputData) => {
+            let todoText;
+            todoText = inputData.editTodoInput;
+            this.todoProvider.editTodo(todoIndex, todoText);
+
+            editTodoAlert.onDidDismiss(() => {
+              let editTodoToast = this.toastController.create({
+                message: "Todo updated",
+                duration: 2000
+              });
+              editTodoToast.present();
+            });
+          }       
+        }
+      ]
+    });
+    editTodoAlert.present();
   }
 
 }
